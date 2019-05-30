@@ -111,6 +111,16 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         {
             return _client.GetHeaderValue(control);
         }
+        
+        /// <summary>
+        /// Gets the value of a Boolean Item from the header
+        /// </summary>
+        /// <param name="control">The boolean field you want to Get.</param>
+        /// <example>xrmApp.Entity.GetHeaderValue(new BooleanItem { Name = "preferredcontactmethodcode"}); </example>
+        public bool GetHeaderValue(BooleanItem control)
+        {
+            return _client.GetHeaderValue(control);
+        }
 
         /// <summary>
         /// Gets the value of a field from the header
@@ -186,6 +196,15 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         }
 
         /// <summary>
+        /// Gets the value of a Boolean Item.
+        /// </summary>
+        /// <param name="option">The boolean field name.</param>
+        public bool GetValue(BooleanItem option)
+        {
+            return _client.GetValue(option);
+        }
+
+        /// <summary>
         /// Gets the value of a MultiValueOptionSet.
         /// </summary>
         /// <param name="option">The option you want to set.</param>
@@ -202,16 +221,6 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         public void OpenEntity(string entityname, Guid id)
         {
             _client.OpenEntity(entityname, id);
-        }
-
-        /// <summary> 
-        /// Open Entity 
-        /// </summary> 
-        /// <param name="entityUri">The entity Uri</param> 
-
-        public void OpenEntity(Uri entityUri)
-        {
-            _client.OpenEntity(entityUri, 0);
         }
 
         /// <summary>
@@ -294,6 +303,15 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         }
 
         /// <summary>
+        /// Sets the value of a BooleanItem in the header
+        /// </summary>
+        /// <param name="control">The boolean field you want to set.</param>
+        public void SetHeaderValue(BooleanItem control)
+        {
+            _client.SetHeaderValue(control);
+        }
+
+        /// <summary>
         /// Sets the value of a field
         /// </summary>
         /// <param name="field">The field</param>
@@ -324,10 +342,10 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         /// <summary>
         /// Sets the value of a Boolean Item.
         /// </summary>
-        /// <param name="option">The option you want to set.</param>
-        public void SetValue(BooleanItem optionSet)
+        /// <param name="option">The boolean field name.</param>
+        public void SetValue(BooleanItem option)
         {
-            _client.SetValue(optionSet);
+            _client.SetValue(option);
         }
 
         /// <summary>
@@ -358,6 +376,16 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         public void SwitchProcess(string processToSwitchTo)
         {
             _client.SwitchProcess(processToSwitchTo);
+        }
+
+        /// <summary>
+        /// Switches forms using the form selector
+        /// </summary>
+        /// <param name="formName">Name of the form</param>
+        /// <example>xrmApp.Entity.SelectForm("AI for Sales");</example>
+        public void SelectForm(string formName)
+        {
+            _client.SelectForm(formName);
         }
     }   
 }
